@@ -1,7 +1,7 @@
 # Security Group Module calling
 module "security_groups" {
   source       = "./modules/sg"
-  vpc_id       = data.aws_vpc.default.id
+  vpc_id = data.aws_vpc.custom_vpc.id
   allowed_cidr = var.allowed_cidr
   sg_config    = var.security_groups
   tags         = local.common_tags
@@ -16,3 +16,4 @@ module "ec2_instances" {
   tags          = local.common_tags
 
 }
+
